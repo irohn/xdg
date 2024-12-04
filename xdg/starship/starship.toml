@@ -22,8 +22,8 @@ disabled = true
 [character]
 error_symbol = "[\\$](bold red)"
 success_symbol = "[\\$](bold white)"
-vimcmd_symbol = "[\\$](bold blue)"
-vimcmd_visual_symbol = "[\\$](bold orange)"
+vimcmd_symbol = "[V](bold blue)"
+vimcmd_visual_symbol = "[V](bold orange)"
 
 [cmake]
 disabled = true
@@ -163,8 +163,8 @@ disabled = true
 [hg_branch]
 disabled = true
 
-[mojo]
-disabled = true
+# [mojo] # for some reason says unknown key
+# disabled = true
 
 [nats]
 disabled = true
@@ -191,7 +191,7 @@ disabled = true
 disabled = true
 
 [os]
-disabled = true
+disabled = false
 
 [package]
 disabled = true
@@ -270,7 +270,6 @@ disabled = true
 
 [username]
 disabled = false
-format = "[$user]($style)"
 show_always = true
 style_root = "red bold"
 style_user = "green bold"
@@ -287,5 +286,3 @@ disabled = true
 [zig]
 disabled = true
 
-[custom]
-disabled = false
