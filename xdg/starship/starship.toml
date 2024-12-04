@@ -16,9 +16,6 @@ disabled = true
 [bun]
 disabled = true
 
-[nodejs]
-disabled = true
-
 [c]
 disabled = true
 
