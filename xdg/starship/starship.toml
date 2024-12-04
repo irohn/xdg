@@ -1,0 +1,294 @@
+add_newline = false
+format = "$os$all"
+
+[aws]
+disabled = true
+
+[azure]
+disabled = true
+
+[battery]
+disabled = true
+
+[buf]
+disabled = true
+
+[bun]
+disabled = true
+
+[nodejs]
+disabled = true
+
+[c]
+disabled = true
+
+[character]
+error_symbol = "[\\$](bold red)"
+success_symbol = "[\\$](bold white)"
+vimcmd_symbol = "[\\$](bold blue)"
+vimcmd_visual_symbol = "[\\$](bold orange)"
+
+[cmake]
+disabled = true
+
+[cobol]
+disabled = true
+
+[cmd_duration]
+disabled = true
+
+[conda]
+disabled = true
+
+[container]
+disabled = true
+
+[crystal]
+disabled = true
+
+[daml]
+disabled = true
+
+[dart]
+disabled = true
+
+[deno]
+disabled = true
+
+[directory]
+truncation_length = 5
+
+[direnv]
+disabled = true
+
+[docker_context]
+disabled = true
+
+[dotnet]
+disabled = true
+
+[elixir]
+disabled = true
+
+[elm]
+disabled = true
+
+[env_var]
+disabled = false
+
+[erlang]
+disabled = true
+
+[fennel]
+disabled = true
+
+[fill]
+disabled = false
+
+[fossil_branch]
+disabled = true
+
+[fossil_metrics]
+disabled = true
+
+[gcloud]
+disabled = true
+
+[git_branch]
+disabled = false
+
+[git_commit]
+disabled = false
+
+[git_state]
+disabled = false
+
+[git_metrics]
+disabled = true
+
+[git_status]
+disabled = false
+
+[gleam]
+disabled = true
+
+[golang]
+disabled = true
+
+[guix_shell]
+disabled = false
+
+[gradle]
+disabled = true
+
+[haskell]
+disabled = true
+
+[haxe]
+disabled = true
+
+[helm]
+disabled = true
+
+[hostname]
+disabled = false
+
+[java]
+disabled = true
+
+[jobs]
+disabled = false
+
+[julia]
+disabled = true
+
+[kotlin]
+disabled = true
+
+[kubernetes]
+disabled = true
+
+[line_break]
+disabled = true
+
+[localip]
+disabled = true
+
+[lua]
+disabled = true
+
+[memory_usage]
+disabled = true
+
+[meson]
+disabled = true
+
+[hg_branch]
+disabled = true
+
+[mojo]
+disabled = true
+
+[nats]
+disabled = true
+
+[nim]
+disabled = true
+
+[nix_shell]
+disabled = false
+
+[nodejs]
+disabled = true
+
+[ocaml]
+disabled = true
+
+[odin]
+disabled = true
+
+[opa]
+disabled = true
+
+[openstack]
+disabled = true
+
+[os]
+disabled = true
+
+[package]
+disabled = true
+
+[perl]
+disabled = true
+
+[php]
+disabled = true
+
+[pijul_channel]
+disabled = true
+
+[pulumi]
+disabled = true
+
+[purescript]
+disabled = true
+
+[python]
+disabled = true
+
+[quarto]
+disabled = true
+
+[rlang]
+disabled = true
+
+[raku]
+disabled = true
+
+[red]
+disabled = true
+
+[ruby]
+disabled = true
+
+[rust]
+disabled = true
+
+[scala]
+disabled = true
+
+[shell]
+disabled = true
+
+[shlvl]
+disabled = true
+
+[singularity]
+disabled = true
+
+[solidity]
+disabled = true
+
+[spack]
+disabled = true
+
+[status]
+disabled = true
+
+[sudo]
+disabled = true
+
+[swift]
+disabled = true
+
+[terraform]
+disabled = true
+
+[time]
+disabled = true
+
+[typst]
+disabled = true
+
+[username]
+disabled = false
+format = "[$user]($style)"
+show_always = true
+style_root = "red bold"
+style_user = "green bold"
+
+[vagrant]
+disabled = true
+
+[vlang]
+disabled = true
+
+[vcsh]
+disabled = true
+
+[zig]
+disabled = true
+
+[custom]
+disabled = false
