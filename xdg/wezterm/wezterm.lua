@@ -31,7 +31,7 @@ config.use_fancy_tab_bar = false
 config.hide_tab_bar_if_only_one_tab = true
 config.show_new_tab_button_in_tab_bar = false
 
-config.color_scheme = "kanagawabones"
+config.color_scheme = "Kanagawa Dragon (Gogh)"
 
 config.font_size = 20.0
 config.audible_bell = "Disabled"
