@@ -1,288 +1,105 @@
 add_newline = false
-format = "$os$all"
-
-[aws]
-disabled = true
-
-[azure]
-disabled = true
-
-[battery]
-disabled = true
-
-[buf]
-disabled = true
-
-[bun]
-disabled = true
+format = "$os$all$character"
 
 [c]
-disabled = true
+format = "[$symbol($version(-$name) )]($style)"
+symbol = " "
 
 [character]
 error_symbol = "[\\$](bold red)"
 success_symbol = "[\\$](bold white)"
-vimcmd_symbol = "[V](bold blue)"
-vimcmd_visual_symbol = "[V](bold orange)"
+vimcmd_symbol = "[](bold blue)"
+vimcmd_visual_symbol = "[](bold orange)"
 
 [cmake]
 disabled = true
 
-[cobol]
-disabled = true
-
-[cmd_duration]
-disabled = true
-
-[conda]
-disabled = true
-
-[container]
-disabled = true
-
-[crystal]
-disabled = true
-
-[daml]
-disabled = true
-
-[dart]
-disabled = true
-
-[deno]
-disabled = true
-
 [directory]
-truncation_length = 5
-
-[direnv]
-disabled = true
-
-[docker_context]
-disabled = true
-
-[dotnet]
-disabled = true
-
-[elixir]
-disabled = true
-
-[elm]
-disabled = true
-
-[env_var]
-disabled = false
-
-[erlang]
-disabled = true
-
-[fennel]
-disabled = true
-
-[fill]
-disabled = false
-
-[fossil_branch]
-disabled = true
-
-[fossil_metrics]
-disabled = true
-
-[gcloud]
-disabled = true
+format = "[󰉋 $path]($style)[$read_only]($read_only_style) "
 
 [git_branch]
-disabled = false
-
-[git_commit]
-disabled = false
-
-[git_state]
-disabled = false
-
-[git_metrics]
-disabled = true
-
-[git_status]
-disabled = false
-
-[gleam]
-disabled = true
+format = "[$symbol$branch(:$remote_branch)]($style) "
+symbol = ""
 
 [golang]
-disabled = true
-
-[guix_shell]
-disabled = false
-
-[gradle]
-disabled = true
-
-[haskell]
-disabled = true
-
-[haxe]
-disabled = true
-
-[helm]
-disabled = true
+format = "[$symbol($version )]($style)"
+symbol = " "
 
 [hostname]
-disabled = false
-
-[java]
-disabled = true
-
-[jobs]
-disabled = false
-
-[julia]
-disabled = true
-
-[kotlin]
-disabled = true
-
-[kubernetes]
-disabled = true
+format = "[@$hostname$ssh_symbol](bold green) "
+ssh_only = false
+ssh_symbol = "->ssh"
 
 [line_break]
 disabled = true
 
-[localip]
-disabled = true
-
 [lua]
-disabled = true
-
-[memory_usage]
-disabled = true
-
-[meson]
-disabled = true
-
-[hg_branch]
-disabled = true
-
-# [mojo] # for some reason says unknown key
-# disabled = true
-
-[nats]
-disabled = true
-
-[nim]
-disabled = true
+format = "[$symbol($version )]($style)"
+symbol = "󰢱 "
 
 [nix_shell]
-disabled = false
+format = "[$symbol$state]($style) "
+symbol = "❄️ "
 
 [nodejs]
-disabled = true
-
-[ocaml]
-disabled = true
-
-[odin]
-disabled = true
-
-[opa]
-disabled = true
-
-[openstack]
-disabled = true
+format = "[$symbol($version )]($style)"
+symbol = "󰎙 "
 
 [os]
 disabled = false
+format = " [$symbol](white)"
 
-[package]
-disabled = true
-
-[perl]
-disabled = true
-
-[php]
-disabled = true
-
-[pijul_channel]
-disabled = true
-
-[pulumi]
-disabled = true
-
-[purescript]
-disabled = true
+[os.symbols]
+Alpaquita = " "
+Alpine = " "
+Amazon = " "
+Android = " "
+Arch = " "
+Artix = " "
+CentOS = " "
+Debian = " "
+DragonFly = " "
+Emscripten = " "
+EndeavourOS = " "
+Fedora = " "
+FreeBSD = " "
+Garuda = "󰛓 "
+Gentoo = " "
+HardenedBSD = "󰞌 "
+Illumos = "󰈸 "
+Linux = " "
+Mabox = " "
+Macos = " "
+Manjaro = " "
+Mariner = " "
+MidnightBSD = " "
+Mint = " "
+NetBSD = " "
+NixOS = " "
+OpenBSD = "󰈺 "
+OracleLinux = "󰌷 "
+Pop = " "
+Raspbian = " "
+RedHatEnterprise = " "
+Redhat = " "
+Redox = "󰀘 "
+SUSE = " "
+Solus = "󰠳 "
+Ubuntu = " "
+Unknown = " "
+Windows = "󰍲 "
+openSUSE = " "
 
 [python]
-disabled = true
-
-[quarto]
-disabled = true
-
-[rlang]
-disabled = true
-
-[raku]
-disabled = true
-
-[red]
-disabled = true
-
-[ruby]
-disabled = true
+format = "[$symbol($version )(($virtualenv) )]($style)"
+symbol = "󰌠 "
 
 [rust]
-disabled = true
-
-[scala]
-disabled = true
-
-[shell]
-disabled = true
-
-[shlvl]
-disabled = true
-
-[singularity]
-disabled = true
-
-[solidity]
-disabled = true
-
-[spack]
-disabled = true
-
-[status]
-disabled = true
-
-[sudo]
-disabled = true
-
-[swift]
-disabled = true
-
-[terraform]
-disabled = true
-
-[time]
-disabled = true
-
-[typst]
-disabled = true
+format = "[$symbol($version )]($style)"
+symbol = "󱘗 "
 
 [username]
-disabled = false
+format = "[$user]($style)"
 show_always = true
-style_root = "red bold"
-style_user = "green bold"
-
-[vagrant]
-disabled = true
-
-[vlang]
-disabled = true
-
-[vcsh]
-disabled = true
-
-[zig]
-disabled = true
-
+style_root = "bright-red bold"
+style_user = "bright-green bold"
