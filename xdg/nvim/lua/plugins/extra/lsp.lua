@@ -2,7 +2,8 @@ return {
   {
     "neovim/nvim-lspconfig",
     config = function()
-      require("config.language-servers")
+      require("lspconfig").nixd.setup({})
+      require("lspconfig").lua_ls.setup({})
     end,
   },
 
