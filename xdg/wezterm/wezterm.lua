@@ -37,7 +37,6 @@ config.font_size = 20.0
 config.audible_bell = "Disabled"
 
 config.max_fps = 120
-config.front_end = "WebGpu"
 
 return config
 
