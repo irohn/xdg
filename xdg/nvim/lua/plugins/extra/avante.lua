@@ -23,7 +23,6 @@ return {
     },
   },
   config = function()
-    require("config.env")
     require("avante").setup()
   end
 }
