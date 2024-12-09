@@ -24,6 +24,10 @@ map("n", "<c-u>", "<c-u>zz")
 map("n", "n", "nzzzv")
 map("n", "N", "Nzzzv")
 
+-- show messages
 map("n", "<leader>m", "<cmd>messages<cr>")
+
+-- exit terminal mode
+map("t", "<esc><esc>", "<c-\\><c-n>")
 
 -- vim: ts=2 sts=2 sw=2 et
