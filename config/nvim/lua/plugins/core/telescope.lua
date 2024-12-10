@@ -6,7 +6,13 @@ return {
     "nvim-telescope/telescope-ui-select.nvim"
   },
   config = function()
-    require("telescope").setup()
+    require("telescope").setup({
+      -- workaround to set all pickers theme
+      -- https://github.com/nvim-telescope/telescope.nvim/issues/938#issuecomment-877539724
+      defaults = require("telescope.themes").get_ivy({
+        theme = "ivy"
+      })
+    })
     local builtin = require("telescope.builtin")
     local utils = require("telescope.utils")
 
