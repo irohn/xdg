@@ -31,7 +31,7 @@ else
 fi
 
 if command -v "fzf" 2>&1 >/dev/null; then
-    selected_dir=$(bash -c "$find_command | fzf --preview 'ls -la'")
+    selected_dir=$(bash -c "$find_command | fzf --preview 'ls -la {}'")
 else
     read -p "Sessionize Directory: " dir_input
     selected_dir=$(bash -c "$find_command | grep "$dir_input" | head -1")
