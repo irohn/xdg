@@ -15,6 +15,11 @@ map({"n","v"}, "<s-p>", "\"*p")
 map("n", "<s-h>", "<cmd>bprev<cr>")
 map("n", "<s-l>", "<cmd>bnext<cr>")
 
+-- quickfix list navigation
+map("n", "<leader>q", "<cmd>copen<cr>")
+map("n", "<c-n>", "<cmd>cnext<cr>")
+map("n", "<c-p>", "<cmd>cprev<cr>")
+
 -- open file explorer
 map("n", "-", "<cmd>Explore<cr>")
 
