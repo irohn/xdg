@@ -32,16 +32,4 @@ map("n", "N", "Nzzzv")
 -- show messages
 map("n", "<leader>m", "<cmd>messages<cr>")
 
--- exit terminal mode
-map("t", "<esc><esc>", "<c-\\><c-n>")
-
--- open terminal below
-map("n", "<leader>tr", function()
-  vim.cmd.split()
-  vim.cmd.term()
-  vim.api.nvim_win_set_height(0, 5)
-  vim.cmd.startinsert()
-end)
-
-
 -- vim: ts=2 sts=2 sw=2 et

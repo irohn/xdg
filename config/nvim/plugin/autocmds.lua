@@ -1,7 +1,5 @@
 -- create custom group
-local function augroup(name)
-  return vim.api.nvim_create_augroup("custom_" .. name, { clear = true })
-end
+local augroup = require("config.utils").augroup
 
 vim.api.nvim_create_autocmd("FileType", {
   group = augroup("big_file"),
@@ -71,14 +69,6 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 		local file = vim.uv.fs_realpath(event.match) or event.match
 		vim.fn.mkdir(vim.fn.fnamemodify(file, ":p:h"), "p")
 	end,
-})
-
-vim.api.nvim_create_autocmd("TermOpen", {
-  group = augroup("term_open"),
-  callback = function()
-    vim.opt_local.number = false
-    vim.opt_local.relativenumber = false
-  end
 })
 
 -- vim: ts=2 sts=2 sw=2 et

@@ -5,7 +5,7 @@ function M.keymap(mode, lhs, rhs, opts)
     noremap = true,
     silent = true,
   }
-  
+
   if opts then
     options = vim.tbl_extend("force", options, opts)
   end
@@ -65,6 +65,41 @@ function M.extra()
   end, {})
 
   return plugins_enabled
+end
+
+M.augroup = function(name)
+  return vim.api.nvim_create_augroup("custom_" .. name, { clear = true })
+end
+
+M.toggle_terminal = function()
+  local terms = {}
+  local term_height = math.max(5, math.floor(vim.api.nvim_win_get_height(0) * 0.3))
+  for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+    if vim.bo[buf].buftype == "terminal" then
+      table.insert(terms, buf)
+    end
+  end
+
+  local term_buf = terms[1]
+  if term_buf then
+    local win = vim.fn.bufwinnr(term_buf)
+    if win ~= -1 then
+      vim.cmd(win .. "close")
+    else
+      vim.cmd("botright split")
+      vim.api.nvim_win_set_height(0, term_height)
+      vim.cmd("buffer " .. term_buf)
+      vim.cmd.startinsert()
+    end
+  else
+    vim.cmd("botright split")
+    vim.cmd.term()
+    vim.api.nvim_win_set_height(0, term_height)
+    -- Set buffer options to hide it from buffer list
+    vim.bo.buflisted = false
+    vim.bo.bufhidden = "hide"
+    vim.cmd.startinsert()
+  end
 end
 
 return M
