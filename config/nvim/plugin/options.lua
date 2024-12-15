@@ -1,4 +1,4 @@
-options = {
+local options = {
   number = true,
   relativenumber = true,
 
@@ -39,16 +39,15 @@ options = {
   mouse = "a",
 
   -- keep signcolumn on by default
-  signcolumn = 'yes',
+  signcolumn = "yes",
 
   -- completion
-  completeopt = 'menuone,noselect,noinsert',
+  completeopt = "menuone,noselect,noinsert",
   pumheight = 15,
 }
 
-for option, value in pairs(options, opt_type) do
-  opt_type = opt_type or vim.opt
-  opt_type[option] = value
+for option, value in pairs(options) do
+  vim.opt[option] = value
 end
 
 -- vim: ts=2 sts=2 sw=2 et

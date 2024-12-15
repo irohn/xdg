@@ -73,4 +73,12 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 	end,
 })
 
+vim.api.nvim_create_autocmd("TermOpen", {
+  group = augroup("term_open"),
+  callback = function()
+    vim.opt_local.number = false
+    vim.opt_local.relativenumber = false
+  end
+})
+
 -- vim: ts=2 sts=2 sw=2 et
