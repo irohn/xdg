@@ -13,7 +13,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
 map("t", "<esc><esc>", "<c-\\><c-n>")
 
 -- toggle bottom terminal
-map({"n", "t"}, "<leader>tr", function()
+map({"n", "t"}, "<C-x>", function()
   toggle_terminal()
 end)
 
