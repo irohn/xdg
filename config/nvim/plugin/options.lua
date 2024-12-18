@@ -1,53 +1,53 @@
 local options = {
-  number = true,
-  relativenumber = true,
+	number = true,
+	relativenumber = true,
 
-  -- preview substitutions
-  inccommand = "split",
+	-- preview substitutions
+	inccommand = "split",
 
-  -- search options
-  smartcase = true,
-  ignorecase = true,
+	-- search options
+	smartcase = true,
+	ignorecase = true,
 
-  -- split options
-  splitbelow = true,
-  splitright = true,
+	-- split options
+	splitbelow = true,
+	splitright = true,
 
-  -- change tabs into spaces on save
-  expandtab = true,
+	-- change tabs into spaces on save
+	expandtab = true,
 
-  -- highlight line cursor is on
-  cursorline = true,
+	-- highlight line cursor is on
+	cursorline = true,
 
-  -- persistent undo
-  undofile = true,
+	-- persistent undo
+	undofile = true,
 
-  -- allow virtual visualization in block mode
-  virtualedit = "block",
+	-- allow virtual visualization in block mode
+	virtualedit = "block",
 
-  -- show a single status line
-  laststatus = 3,
+	-- show a single status line
+	laststatus = 3,
 
-  -- update times and timeouts
-  updatetime = 250,
-  timeoutlen = 500,
+	-- update times and timeouts
+	updatetime = 250,
+	timeoutlen = 500,
 
-  -- wrap long lines at words
-  linebreak = true,
+	-- wrap long lines at words
+	linebreak = true,
 
-  -- enable mouse mode
-  mouse = "a",
+	-- enable mouse mode
+	mouse = "a",
 
-  -- keep signcolumn on by default
-  signcolumn = "yes",
+	-- keep signcolumn on by default
+	signcolumn = "yes",
 
-  -- completion
-  completeopt = "menuone,noselect,noinsert",
-  pumheight = 15,
+	-- completion
+	completeopt = "menuone,noselect,noinsert",
+	pumheight = 15,
 }
 
 for option, value in pairs(options) do
-  vim.opt[option] = value
+	vim.opt[option] = value
 end
 
 -- vim: ts=2 sts=2 sw=2 et

@@ -6,8 +6,8 @@ vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
 -- copy/paste to/from clipboard
-vim.keymap.set({"n","v"}, "<s-y>", "\"*y")
-vim.keymap.set({"n","v"}, "<s-p>", "\"*p")
+vim.keymap.set({ "n", "v" }, "<s-y>", '"*y')
+vim.keymap.set({ "n", "v" }, "<s-p>", '"*p')
 
 -- move between buffers
 vim.keymap.set("n", "<s-h>", "<cmd>bprev<cr>")
