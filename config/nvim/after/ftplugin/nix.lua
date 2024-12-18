@@ -1,6 +1,4 @@
-local map = require("config.utils").keymap
-
-map("n", "<leader>w", "<cmd>w | !nix repl --file %<cr>", {
+vim.keymap.set("n", "<leader>w", "<cmd>w | !nix repl --file %<cr>", {
   buffer = true,
   desc = "source current file",
 })

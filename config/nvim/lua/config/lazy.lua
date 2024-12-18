@@ -15,15 +15,9 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46_cache/"
--- disable/enable extra plugins with user commands ExtraPluginsDisable / ExtraPluginsEnable
-vim.g.extra_plugins = require("config.utils").extra()
-
-
 -- Setup lazy.nvim
 require("lazy").setup({ spec = {
-  { import = "plugins/core" },
-  vim.g.extra_plugins and { import = "plugins/extra" } or nil,
+  { import = "plugins" },
 }}, {
   ui = { border = 'rounded' },
   -- Don't bother me when tweaking plugins.

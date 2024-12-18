@@ -1,5 +1,7 @@
 -- create custom group
-local augroup = require("config.utils").augroup
+local augroup = function(name)
+  return vim.api.nvim_create_augroup("irohn_" .. name, { clear = true })
+end
 
 vim.api.nvim_create_autocmd("FileType", {
   group = augroup("big_file"),

@@ -1,6 +1,4 @@
-local map = require("config.utils").keymap
-
-map("n", "<leader>w", "<cmd>w | !python3 %<cr>", {
+vim.keymap.set("n", "<leader>w", "<cmd>w | !python3 %<cr>", {
   buffer = true,
   desc = "run current file",
 })

@@ -1,11 +1,4 @@
-local M = {}
-
 local colorscheme_overwrite = nil
-
-local defaults = {
-  preview = true,
-  keymap = "<leader>th",
-}
 
 local function save_colorscheme(color_name)
   local cache_dir = vim.fn.stdpath('cache')
@@ -57,20 +50,16 @@ local function pick_colorscheme(opts)
   )
 end
 
-M.setup = function(opts)
-  opts = vim.tbl_deep_extend("force", defaults, opts or {})
+vim.api.nvim_create_user_command("Theme", function()
+  pick_colorscheme()
+end, {})
 
-  if opts.keymap then
-    vim.keymap.set("n", opts.keymap, function() pick_colorscheme(opts) end)
-  end
-
-  if colorscheme_overwrite then
-    vim.cmd.colorscheme(colorscheme_overwrite)
-  else
-    load_cached_colorscheme()
-  end
+if colorscheme_overwrite then
+  vim.cmd.colorscheme(colorscheme_overwrite)
+else
+  load_cached_colorscheme()
 end
 
-return M
+vim.keymap.set("n", "<leader>th", "<cmd>Theme<cr>")
 
 -- vim: ts=2 sts=2 sw=2 et
