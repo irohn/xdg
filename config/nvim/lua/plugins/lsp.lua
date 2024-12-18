@@ -15,6 +15,8 @@ return {
 			servers = {
 				lua_ls = {},
 				nixd = {},
+				bashls = {},
+				pyright = {},
 			},
 		},
 		config = function(_, opts)
