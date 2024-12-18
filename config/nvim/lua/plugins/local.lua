@@ -2,7 +2,6 @@ local function load_plugin(spec)
 	if spec.dir then
 		local expanded_dir = vim.fn.expand(spec.dir)
 		if vim.fn.isdirectory(expanded_dir) ~= 1 then
-			print("Warning: Directory not found for plugin '" .. spec.name .. "': " .. expanded_dir)
 			return nil
 		end
 	end

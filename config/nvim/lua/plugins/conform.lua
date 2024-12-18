@@ -2,6 +2,23 @@ return {
 	"stevearc/conform.nvim",
 	event = { "BufWritePre" },
 	cmd = { "ConformInfo" },
+	keys = {
+		{
+			-- Customize or remove this keymap to your liking
+			"<c-f>",
+			function()
+				require("conform").format({ async = true, lsp_fallback = true }, function(err)
+					if err then
+						vim.notify("Format failed", vim.log.levels.WARN)
+					else
+						vim.notify("Format success", vim.log.levels.INFO, { timeout = 500 })
+					end
+				end)
+			end,
+			mode = "",
+			desc = "Format buffer",
+		},
+	},
 	opts = {
 		-- Define your formatters
 		formatters_by_ft = {
