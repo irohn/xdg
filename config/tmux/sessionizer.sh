@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-
 FIND_DEPTH=10
 FIND_DIR="$HOME"
 
@@ -24,22 +23,21 @@ excludes=(
     out
 )
 
-if command -v "fd" 2>&1 >/dev/null; then
+if command -v "fd" >/dev/null 2>&1; then
     find_command="fd -H -t d '^.git$' $FIND_DIR $(printf -- "--exclude %s " "${excludes[@]}") --max-depth ${FIND_DEPTH} -x echo {//}"
 else
     find_command="find $FIND_DIR -maxdepth ${FIND_DEPTH} -name .git -type d $(printf -- "-not -path '*/%s/*' " "${excludes[@]}") -exec dirname {} \;"
 fi
 
-if command -v "fzf" 2>&1 >/dev/null; then
+if command -v "fzf" >/dev/null 2>&1; then
     selected_dir=$(bash -c "$find_command | fzf --preview 'ls -la {}'")
 else
-    read -p "Sessionize Directory: " dir_input
-    selected_dir=$(bash -c "$find_command | grep "$dir_input" | head -1")
+    read -rp "Sessionize Directory: " dir_input
+    selected_dir=$(bash -c "$find_command | grep \"$dir_input\" | head -1")
 fi
 
 session_name=$(basename "$selected_dir" | tr . _)
 if ! tmux has-session -t="$session_name" 2>/dev/null; then
     tmux new-session -ds "$session_name" -c "$selected_dir"
 fi
-[ -z "$TMUX" ] && tmux attach -t "$session_name" || tmux switch-client -t "$session_name"
-
+([ -z "$TMUX" ] && tmux attach -t "$session_name") || tmux switch-client -t "$session_name"
