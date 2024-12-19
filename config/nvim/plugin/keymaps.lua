@@ -15,7 +15,7 @@ vim.keymap.set("n", "<s-l>", "<cmd>bnext<cr>")
 
 -- quickfix list navigation
 vim.keymap.set("n", "<leader>q", "<cmd>copen<cr>")
-vim.scheduile(function()
+vim.schedule(function()
 	vim.keymap.set("n", "<c-j>", "<cmd>cnext<cr>")
 	vim.keymap.set("n", "<c-k>", "<cmd>cprev<cr>")
 end)
