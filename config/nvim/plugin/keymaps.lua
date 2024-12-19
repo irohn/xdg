@@ -15,8 +15,8 @@ vim.keymap.set("n", "<s-l>", "<cmd>bnext<cr>")
 
 -- quickfix list navigation
 vim.keymap.set("n", "<leader>q", "<cmd>copen<cr>")
-vim.keymap.set("n", "<c-n>", "<cmd>cnext<cr>")
-vim.keymap.set("n", "<c-p>", "<cmd>cprev<cr>")
+vim.keymap.set("n", "<c-j>", "<cmd>cnext<cr>")
+vim.keymap.set("n", "<c-k>", "<cmd>cprev<cr>")
 
 -- open file explorer
 vim.keymap.set("n", "-", "<cmd>Explore<cr>")
