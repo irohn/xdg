@@ -26,7 +26,7 @@ excludes=(
 if command -v "fd" >/dev/null 2>&1; then
     find_command="fd -H -t d '^.git$' $FIND_DIR $(printf -- "--exclude %s " "${excludes[@]}") --max-depth ${FIND_DEPTH} -x echo {//}"
 else
-    find_command="find $FIND_DIR -maxdepth ${FIND_DEPTH} -name .git -type d $(printf -- "-not -path '*/%s/*' " "${excludes[@]}") -exec dirname {} \;"
+    find_command="find $FIND_DIR -maxdepth ${FIND_DEPTH} -name .git -type d $(printf -- "-not -path '*/%s/*' " "${excludes[@]}" | sed 's/ $//') -exec dirname {} \;"
 fi
 
 if command -v "fzf" >/dev/null 2>&1; then
