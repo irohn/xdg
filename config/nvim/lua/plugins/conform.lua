@@ -26,6 +26,7 @@ return {
 			nix = { "nixfmt" },
 			python = { "isort", "black" },
 			sh = { "shfmt" },
+			yaml = { "yamlfix" },
 		},
 		-- Set default options
 		default_format_opts = {

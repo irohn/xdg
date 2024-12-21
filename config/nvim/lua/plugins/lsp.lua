@@ -3,6 +3,7 @@ return {
 		"neovim/nvim-lspconfig",
 		dependencies = {
 			"saghen/blink.cmp",
+			"b0o/SchemaStore.nvim",
 			{
 				"folke/lazydev.nvim",
 				ft = "lua",
@@ -17,6 +18,16 @@ return {
 				nixd = {},
 				bashls = {},
 				pyright = {},
+				yamlls = {
+					settings = {
+						yaml = {
+							schemaStore = {
+								enable = false,
+								url = "",
+							},
+						},
+					},
+				},
 			},
 		},
 		config = function(_, opts)
@@ -38,7 +49,11 @@ return {
 
 					local client = vim.lsp.get_client_by_id(ev.data.client_id)
 
-					if client and client.supports_method(vim.lsp.protocol.Methods.textDocuments_documentHighlight) then
+					if client and client.name == "yamlls" then
+						client.config.settings.yaml.schemas = require("schemastore").yaml.schemas()
+					end
+
+					if client and client.supports_method("textDocument/documentHighlight") then
 						local highlight_augroup = vim.api.nvim_create_augroup("lsp-highlight", { clear = false })
 						vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
 							buffer = ev.buf,
@@ -60,7 +75,7 @@ return {
 							end,
 						})
 
-						if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
+						if client.supports_method("textDocument/inlayHint") then
 							vim.keymap.set("n", "<leader>ih", function()
 								vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = ev.buf }))
 							end)
