@@ -1,35 +1,32 @@
--- clear hightlights
-vim.keymap.set("n", "<esc>", "<cmd>nohlsearch<cr><esc>")
+local keymaps = {
+	["<esc>"] = "<cmd>nohlsearch<cr><esc>",
+	["s-h"] = "<cmd>bprev<cr>",
+	["s-l"] = "<cmd>bnext<cr>",
+	["<"] = { rhs = "<gv", modes = "v" },
+	[">"] = { rhs = ">gv", modes = "v" },
+	["-"] = "<cmd>Explore<cr>",
+	["<c-d>"] = "<c-d>zz",
+	["<c-u>"] = "<c-u>zz",
+	["n"] = "nzzzv",
+	["N"] = "Nzzzv",
+	["<leader>m"] = "<cmd>messages<cr>",
+	["<leader>q"] = "<cmd>copen<cr>",
+	["c-j"] = "<cmd>cnext<cr>",
+	["c-k"] = "<cmd>cprev<cr>",
+	["<s-y>"] = { rhs = '"+y', modes = { "n", "v" } },
+	["<s-p>"] = { rhs = '"+p', modes = { "n", "v" } },
+}
 
--- indent while remaining in visual mode
-vim.keymap.set("v", "<", "<gv")
-vim.keymap.set("v", ">", ">gv")
-
--- copy/paste to/from clipboard
-vim.keymap.set({ "n", "v" }, "<s-y>", '"*y')
-vim.keymap.set({ "n", "v" }, "<s-p>", '"*p')
-
--- move between buffers
-vim.keymap.set("n", "<s-h>", "<cmd>bprev<cr>")
-vim.keymap.set("n", "<s-l>", "<cmd>bnext<cr>")
-
--- quickfix list navigation
-vim.keymap.set("n", "<leader>q", "<cmd>copen<cr>")
-vim.schedule(function()
-	vim.keymap.set("n", "<c-j>", "<cmd>cnext<cr>")
-	vim.keymap.set("n", "<c-k>", "<cmd>cprev<cr>")
-end)
-
--- open file explorer
-vim.keymap.set("n", "-", "<cmd>Explore<cr>")
-
--- keeping the cursor centered
-vim.keymap.set("n", "<c-d>", "<c-d>zz")
-vim.keymap.set("n", "<c-u>", "<c-u>zz")
-vim.keymap.set("n", "n", "nzzzv")
-vim.keymap.set("n", "N", "Nzzzv")
-
--- show messages
-vim.keymap.set("n", "<leader>m", "<cmd>messages<cr>")
+for key, map in pairs(keymaps) do
+	if type(map) == "string" then
+		vim.schedule(function()
+			vim.keymap.set("n", key, map)
+		end)
+	else
+		vim.schedule(function()
+			vim.keymap.set(map.modes or "n", key, map.rhs, map.opts)
+		end)
+	end
+end
 
 -- vim: ts=2 sts=2 sw=2 et
