@@ -3,11 +3,25 @@ return {
 	---@module "oil"
 	---@type oil.SetupOpts
 	config = function()
+		local detail = false
 		require("oil").setup({
 			win_options = {
 				signcolumn = "yes:3",
 				number = false,
 				relativenumber = false,
+			},
+			keymaps = {
+				["gd"] = {
+					desc = "Toggle file detail view",
+					callback = function()
+						detail = not detail
+						if detail then
+							require("oil").set_columns({ "icon", "permissions", "size", "mtime" })
+						else
+							require("oil").set_columns({ "icon" })
+						end
+					end,
+				},
 			},
 		})
 
