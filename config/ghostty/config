@@ -3,9 +3,6 @@ font-family = "JetBrainsMono Nerd Font"
 
 theme = "Kanagawa Dragon"
 
-keybind = clear
-keybind = super+q=quit
-
 # tmux keybindings (ctrl+b prefix)
 keybind = super+h=text:\x02p
 keybind = super+l=text:\x02n
