@@ -18,5 +18,16 @@ keybind = super+eight=text:\x028
 keybind = super+nine=text:\x029
 keybind = super+zero=text:\x020
 
+keybind = alt+one=text:\x021
+keybind = alt+two=text:\x022
+keybind = alt+three=text:\x023
+keybind = alt+four=text:\x024
+keybind = alt+five=text:\x025
+keybind = alt+six=text:\x026
+keybind = alt+seven=text:\x027
+keybind = alt+eight=text:\x028
+keybind = alt+nine=text:\x029
+keybind = alt+zero=text:\x020
+
 window-decoration = false
 window-padding-balance = true
