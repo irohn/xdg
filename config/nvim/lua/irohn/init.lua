@@ -1,0 +1,5 @@
+require("irohn.autocmds")
+require("irohn.keymaps")
+require("irohn.options")
+require("irohn.terminal")
+require("irohn.theme")
