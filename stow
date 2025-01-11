@@ -8,6 +8,6 @@ if ! command -v stow >/dev/null 2>&1; then
 fi
 
 mkdir -p ~/.config
-stow -t ~/.config -d \
-    "$SCRIPT_DIR/config" \
-    starship/
+cd "$SCRIPT_DIR" || exit
+stow -t ~/.config -d config .
+stow -t ~/.config -d config/starship .
