@@ -18,28 +18,13 @@ vim.opt.rtp:prepend(lazypath)
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
-    { import = "irohn.plugins" },
-  }
-}, {
-  ui = { border = "rounded" },
-  -- Don't bother me when tweaking plugins.
-  change_detection = { enabled = false },
-  -- None of my plugins use luarocks so disable this.
-  rocks = { enabled = false },
-  performance = {
-    rtp = {
-      -- Stuff I don't use.
-      disabled_plugins = {
-        "gzip",
-        "netrwPlugin",
-        "rplugin",
-        "tarPlugin",
-        "tohtml",
-        "tutor",
-        "zipPlugin",
-      },
-    },
+    -- import your plugins
+    { import = "plugins" },
+  },
+  rocks = {
+    enabled = false,
+  },
+  change_detection = {
+    notify = false,
   },
 })
-
--- vim: ts=2 sts=2 sw=2 et

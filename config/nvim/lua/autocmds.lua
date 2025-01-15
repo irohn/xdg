@@ -14,22 +14,6 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
-vim.api.nvim_create_autocmd("FileType", {
-	group = augroup("close_with_q"),
-	desc = "Close with <q>",
-	pattern = {
-		"git",
-		"help",
-		"man",
-		"qf",
-		"query",
-		"scratch",
-	},
-	callback = function(args)
-		vim.keymap.set("n", "q", "<cmd>quit<cr>", { buffer = args.buf })
-	end,
-})
-
 vim.api.nvim_create_autocmd("BufReadPost", {
 	group = augroup("last_location"),
 	desc = "Go to the last location when opening a buffer",
