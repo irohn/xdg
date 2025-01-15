@@ -12,6 +12,12 @@ return {
       defaults = require("telescope.themes").get_ivy({
         theme = "ivy",
       }),
+      pickers = {
+        find_files = {
+          hidden = true,
+          file_ignore_patterns = { "^.git/" }
+        }
+      }
     })
     local builtin = require("telescope.builtin")
     local utils = require("telescope.utils")
