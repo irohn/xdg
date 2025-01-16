@@ -24,7 +24,6 @@ return {
   { "EdenEast/nightfox.nvim",  priority = 1000 },
   { "folke/tokyonight.nvim",   priority = 1000 },
   { "navarasu/onedark.nvim",   priority = 1000 },
-  { "shaunsingh/nord.nvim",    priority = 1000 },
   { "Mofiqul/vscode.nvim",     priority = 1000 },
   { "tiagovla/tokyodark.nvim", priority = 1000 },
   { "comfysage/evergarden",    priority = 1000 },
