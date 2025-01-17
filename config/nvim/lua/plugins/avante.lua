@@ -9,9 +9,7 @@ return {
     "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
   },
-  config = function()
-    require("avante").setup()
-  end,
+  opts = {},
 }
 
 -- vim: ts=2 sts=2 sw=2 et

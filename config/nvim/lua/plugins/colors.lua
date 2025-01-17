@@ -1,10 +1,5 @@
 return {
   {
-    "echasnovski/mini.base16",
-    version = "*",
-  },
-
-  {
     "catgoose/nvim-colorizer.lua",
     event = "BufReadPre",
     opts = {},
@@ -12,11 +7,11 @@ return {
 
   {
     "irohn/colorcache.nvim",
-    name = "colorcache",
-    config = function()
-      require("colorcache").setup()
-      vim.keymap.set("n", "<leader>th", "<cmd>Colorcache<cr>", { desc = "set colorscheme" })
-    end,
+    lazy = false,
+    keys = {
+      { "<leader>th", "<cmd>Colorcache<cr>", desc = "set colorscheme" },
+    },
+    opts = {},
   },
 
   -- colorschemes
