@@ -2,6 +2,7 @@ return {
   "stevearc/oil.nvim",
   ---@module "oil"
   ---@type oil.SetupOpts
+  ---@diagnostic disable-next-line: assign-type-mismatch
   config = function()
     local detail = false
     require("oil").setup({
