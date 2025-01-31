@@ -46,7 +46,6 @@ return {
 
     set("n", "<leader>gs", builtin.git_status, { desc = "Git Status" })
     set("n", "<leader>gc", builtin.git_commits, { desc = "Git Commits" })
-    set("n", "<leader>gb", builtin.git_branches, { desc = "Git Branches" })
 
     set("n", "<leader>j", function()
       builtin.jumplist({ initial_mode = "normal" })

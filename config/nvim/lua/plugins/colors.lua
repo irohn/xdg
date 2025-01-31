@@ -14,16 +14,6 @@ return {
     opts = {},
   },
 
-  {
-    "mikesmithgh/borderline.nvim",
-    enabled = true,
-    lazy = true,
-    event = 'VeryLazy',
-    config = function()
-      require("borderline").setup({})
-    end,
-  },
-
   -- colorschemes
   {
     "rebelot/kanagawa.nvim",
@@ -43,15 +33,82 @@ return {
       end,
     },
   },
+  {
+    "cdmill/neomodern.nvim",
+    priority = 1000,
+    opts = {
+      plugin = {
+        telescope = "borderless",
+      },
+    },
+  },
+  {
+    "folke/tokyonight.nvim",
+    priority = 1000,
+    opts = {
+      on_highlights = function(hl, c)
+        local prompt = "#2d3149"
+        local dark = { bg = c.bg_dark, fg = c.bg_dark }
+        hl.TelescopeNormal = { bg = c.bg_dark, fg = c.fg_dark }
+        hl.TelescopeBorder = dark
+        hl.TelescopePromptNormal = { bg = prompt }
+        hl.TelescopePromptBorder = { bg = prompt, fg = prompt }
+        hl.TelescopePromptTitle = { bg = prompt, fg = prompt }
+        hl.TelescopePreviewTitle = dark
+        hl.TelescopeResultsTitle = dark
+      end,
+    },
+  },
+  {
+    "catppuccin/nvim",
+    priority = 1000,
+    name = "catppuccin",
+    opts = {
+      integrations = {
+        telescope = {
+          enabled = true,
+        },
+      },
+      highlight_overrides = {
+        all = function(colors)
+          return {
+            TelescopeTitle = { fg = colors.blue },
+            TelescopePromptNormal = { bg = colors.mantle },
+            TelescopePromptBorder = { fg = colors.mantle, bg = colors.mantle },
+            TelescopeResultsNormal = { bg = colors.crust },
+            TelescopeResultsBorder = { fg = colors.crust, bg = colors.crust },
+            TelescopePreviewNormal = { bg = colors.base },
+            TelescopePreviewBorder = { fg = colors.base, bg = colors.base },
+          }
+        end,
+      },
+    },
+  },
+  {
+    "EdenEast/nightfox.nvim",
+    priority = 1000,
+    opts = {
+      options = {
+        styles = {
+          comments = "italic",
+          keywords = "bold",
+          types = "italic,bold",
+        },
+      },
+      groups = {
+        all = {
+          TelescopeTitle = { fg = "sel0" },
+          TelescopePromptNormal = { bg = "bg0" },
+          TelescopePromptBorder = { fg = "bg0", bg = "bg0" },
+          TelescopeResultsNormal = { bg = "bg1" },
+          TelescopeResultsBorder = { fg = "bg1", bg = "bg1" },
+          TelescopePreviewNormal = { bg = "bg2" },
+          TelescopePreviewBorder = { fg = "bg2", bg = "bg2" },
+        },
+      },
+    },
+  },
   { "scottmckendry/cyberdream.nvim", priority = 1000 },
-  { "EdenEast/nightfox.nvim",        priority = 1000 },
-  { "folke/tokyonight.nvim",         priority = 1000 },
-  { "navarasu/onedark.nvim",         priority = 1000 },
-  { "Mofiqul/vscode.nvim",           priority = 1000 },
-  { "tiagovla/tokyodark.nvim",       priority = 1000 },
-  { "comfysage/evergarden",          priority = 1000 },
-  { "rose-pine/neovim",              priority = 1000, name = "rose-pine" },
-  { "catppuccin/nvim",               priority = 1000, name = "catppuccin" },
 }
 
 -- vim: ts=2 sts=2 sw=2 et
