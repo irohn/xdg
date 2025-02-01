@@ -5,6 +5,9 @@ set("n", "<esc>", "<cmd>nohlsearch<cr><esc>")
 set("n", "<s-h>", "<cmd>bprev<cr>")
 set("n", "<s-l>", "<cmd>bnext<cr>")
 
+set("n", "<c-s-h>", "<cmd>tabnext<cr>")
+set("n", "<c-s-l>", "<cmd>tabprev<cr>")
+
 set("v", "<", "<gv")
 set("v", ">", ">gv")
 

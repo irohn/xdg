@@ -10,14 +10,15 @@ return {
       quickfile = { enabled = true },
       words = { enabled = true },
       styles = {
+        ---@diagnostic disable-next-line: missing-fields
         scratch = {
           minimal = true,
-          border = "none",
+          border = "solid",
         },
       },
     },
     keys = {
-      { "<leader>s",  function() Snacks.scratch() end,   desc = "Toggle Scratch Buffer" },
+      { "<leader>.",  function() Snacks.scratch() end,   desc = "Toggle Scratch Buffer" },
       { "<leader>gB", function() Snacks.gitbrowse() end, desc = "Git Browse",           mode = { "n", "v" } },
       { "<c-x>",      function() Snacks.terminal() end,  desc = "Toggle Terminal",      mode = { "n", "t" } },
     },
