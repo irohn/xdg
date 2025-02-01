@@ -33,7 +33,7 @@ get_hosts() {
     done <"$config_file"
 }
 
-selected_hosts=$(get_hosts "$SSH_CONFIG" | sort | fzf -m --bind ctrl-a:select-all)
+selected_hosts=$(get_hosts "$SSH_CONFIG" | sort | fzf --layout=reverse -m --bind ctrl-a:select-all)
 
 if [ -z "${TMUX:-}" ]; then
     echo "error: not in a tmux session."

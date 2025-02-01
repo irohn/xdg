@@ -23,17 +23,28 @@ excludes=(
     out
 )
 
+includes=(
+    ~/.config/nvim
+    ~/.config/git
+    ~/.ssh
+)
+
 if command -v "fd" >/dev/null 2>&1; then
     find_command="fd -H -t d '^.git$' $FIND_DIR $(printf -- "--exclude %s " "${excludes[@]}") --max-depth ${FIND_DEPTH} -x echo {//}"
 else
     find_command="find $FIND_DIR -maxdepth ${FIND_DEPTH} -name .git -type d $(printf -- "-not -path '*/%s/*' " "${excludes[@]}" | sed 's/ $//') -exec dirname {} \;"
 fi
 
+paths=$(bash -c "$find_command")
+for include in "${includes[@]}"; do
+    paths="$paths"$'\n'"$include"
+done
+
 if command -v "fzf" >/dev/null 2>&1; then
-    selected_dir=$(bash -c "$find_command | fzf --preview 'ls -la {}'")
+    selected_dir=$(echo "$paths" | fzf --height=60% --layout=reverse --preview-window 'right,border-left' --preview 'ls {}')
 else
     read -rp "Sessionize Directory: " dir_input
-    selected_dir=$(bash -c "$find_command | grep \"$dir_input\" | head -1")
+    selected_dir=$(echo "$paths" | grep "$dir_input" | head -1)
 fi
 
 session_name=$(basename "$selected_dir" | tr . _)
