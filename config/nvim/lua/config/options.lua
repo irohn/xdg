@@ -33,6 +33,7 @@ local options = {
 	timeoutlen = 500,
 
 	-- wrap long lines at words
+  wrap = false,
 	linebreak = true,
 
 	-- enable mouse mode

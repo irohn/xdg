@@ -39,7 +39,6 @@ return {
 
     set("n", "<leader>/", function()
       builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
-        winblend = 4,
         previewer = false,
       }))
     end, { desc = "[/] Fuzzily find in current buffer" })
