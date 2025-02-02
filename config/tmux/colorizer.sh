@@ -2,6 +2,7 @@
 set -euo pipefail
 
 COLORS_PATH="$HOME/.config/tmux/colors"
+DEFAULT_COLORSCHEME="tomorrow-night"
 CACHE_FILE="$HOME/.cache/tmux_colorscheme"
 
 load_from_cache() {
@@ -9,8 +10,8 @@ load_from_cache() {
         tmux source-file "$(cat "$CACHE_FILE")"
         exit 0
     else
-        echo "No cache file found."
-        exit 1
+        tmux source-file "$HOME/.config/tmux/colors/$DEFAULT_COLORSCHEME.conf"
+        exit 0
     fi
 }
 
