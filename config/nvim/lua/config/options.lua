@@ -21,21 +21,20 @@ local function statusline()
   local percentage = " %p%%"
   local linecol = " %l:%c"
 
-  return string.format(
-    "%s%s%s%s%s%s%s%s%s%s%s%s",
-    set_color_1,
-    mode,
-    set_color_2,
-    file_name,
-    modified,
-    align_right,
-    branch,
-    filetype,
-    fileencoding,
-    fileformat,
-    percentage,
-    linecol
-  )
+  return
+      set_color_1 ..
+      mode ..
+      set_color_2 ..
+      file_name ..
+      modified ..
+      align_right ..
+      branch ..
+      filetype ..
+      fileencoding ..
+      fileformat ..
+      percentage ..
+      linecol ..
+      " "
 end
 
 local options = {
