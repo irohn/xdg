@@ -18,11 +18,12 @@ return {
       },
       strategies = {
         chat = {
-          adapter = "copilot",
+          adapter = "anthropic",
         },
         inline = {
-          adapter = "copilot",
+          adapter = "anthropic",
         },
+
       },
     })
     vim.keymap.set({ "n", "v" }, "<leader>ac", "<cmd>CodeCompanionActions<cr>", { noremap = true, silent = true })
