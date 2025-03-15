@@ -1,5 +1,18 @@
 return {
   {
+    "yetone/avante.nvim",
+    event = "VeryLazy",
+    lazy = false,
+    version = false, -- set this if you want to always pull the latest change
+    build = "make",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+    },
+    opts = {},
+  },
+
+  {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
     event = "InsertEnter",
@@ -10,7 +23,7 @@ return {
         hide_during_completion = false,
         debounce = 75,
         keymap = {
-          accept = "<s-tab>",
+          accept = "<tab>",
           next = "<C-l>",
           prev = "<C-h>",
           dismiss = "<C-c>",
@@ -19,3 +32,5 @@ return {
     },
   },
 }
+
+-- vim: ts=2 sts=2 sw=2 et
