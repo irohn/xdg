@@ -28,7 +28,10 @@ return {
   {
     "folke/tokyonight.nvim",
     priority = 1000,
-    opts = {},
+    opts = {
+      style = "night",
+      dim_inactive = true,
+    },
   },
   {
     "rebelot/kanagawa.nvim",
