@@ -16,9 +16,25 @@ return {
 
   {
     "rose-pine/neovim",
-    name = "rose-pine",
     priority = 1000,
-  }
+    name = "rose-pine",
+    opts = {},
+  },
+  {
+    "comfysage/evergarden",
+    priority = 1000,
+    opts = { theme = { variant = "winter" } },
+  },
+  {
+    "folke/tokyonight.nvim",
+    priority = 1000,
+    opts = {},
+  },
+  {
+    "rebelot/kanagawa.nvim",
+    priority = 1000,
+    opts = { theme = "dragon" },
+  },
 }
 
 -- vim: ts=2 sts=2 sw=2 et
