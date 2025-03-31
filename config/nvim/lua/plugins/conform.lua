@@ -27,6 +27,7 @@ return {
       python = { "isort", "black" },
       sh = { "shfmt" },
       yaml = { "yamlfix" },
+      go = { "gofmt", "goimports" },
     },
     -- Set default options
     default_format_opts = {
@@ -73,3 +74,4 @@ return {
 }
 
 -- vim: ts=2 sts=2 sw=2 et
+

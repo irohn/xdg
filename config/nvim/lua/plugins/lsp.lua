@@ -22,6 +22,7 @@ return {
         nixd = {},
         bashls = {},
         pyright = {},
+        gopls = {},
         yamlls = {
           settings = {
             yaml = {
