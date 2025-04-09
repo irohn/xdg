@@ -18,7 +18,6 @@ return {
     { "-", "<cmd>Explore<cr>", desc = "open file explorer" },
     { "<s-h>", "<cmd>bprev<cr>", desc = "previous buffer" },
     { "<s-l>", "<cmd>bnext<cr>", desc = "next buffer" },
-    { "<s-z><s-q>", "<cmd>bdelete<cr>", desc = "delete buffer without quitting" },
   },
 }
 
