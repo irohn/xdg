@@ -3,9 +3,16 @@ if vim.g.neovide then
   vim.g.neovide_refresh_rate = 120
 
   -- neovide keymaps
-  vim.keymap.set("n", "<F11", function()
-    vim.g.neovide_fullscreen = not vim.g.neovide_fullscreen
-  end, {})
+
+  local mappings = {
+    ["<S-Esc>"] = function()
+      vim.cmd("stopinsert")
+    end,
+  }
+
+  for key, func in pairs(mappings) do
+    vim.keymap.set("t", key, func, { noremap = true, silent = true })
+  end
 
   -- options
   vim.o.laststatus = 0
