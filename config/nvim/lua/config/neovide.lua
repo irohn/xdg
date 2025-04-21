@@ -1,8 +1,22 @@
 if vim.g.neovide then
   -- neovide options
   vim.g.neovide_refresh_rate = 120
+  vim.g.neovide_input_macos_option_key_is_meta = 'both'
+  vim.g.neovide_input_use_logo = 1
 
   -- neovide keymaps
+
+  vim.keymap.set(
+    { 'n', 'v', 's', 'x', 'o', 'i', 'l', 'c', 't' },
+    '<D-v>',
+    function() vim.api.nvim_paste(vim.fn.getreg('+'), true, -1) end,
+    { noremap = true, silent = true }
+  )
+
+  vim.api.nvim_set_keymap('', '<D-v>', '+p<CR>', { noremap = true, silent = true })
+  vim.api.nvim_set_keymap('!', '<D-v>', '<C-R>+', { noremap = true, silent = true })
+  vim.api.nvim_set_keymap('t', '<D-v>', '<C-R>+', { noremap = true, silent = true })
+  vim.api.nvim_set_keymap('v', '<D-v>', '<C-R>+', { noremap = true, silent = true })
 
   local mappings = {
     ["<S-Esc>"] = function()
