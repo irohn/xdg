@@ -33,6 +33,17 @@ require("lazy").setup({
   -- automatically check for plugin updates
   checker = { enabled = true, notify = false },
   change_detection = { enabled = false, notify = false },
+  dev = {
+    -- directory where you store your local plugin projects
+    path = "~/projects/personal",
+    -- patterns used to detect plugins in that directory
+    patterns = {
+      "wormhole.nvim",
+      "opinionated.nvim",
+      "colorcache.nvim",
+      "focus.nvim",
+    },
+  },
 })
 
 -- vim: ts=2 sts=2 sw=2 et
