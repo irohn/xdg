@@ -6,11 +6,13 @@ return {
     lazy = true,
     opts = {
       on_enter = function()
+        vim.opt.fillchars:append({ eob = " " })
         if vim.fn.executable("tmux") == 1 then
           vim.fn.system("tmux set status off")
         end
       end,
       on_exit = function()
+        vim.opt.fillchars:append({ eob = "~" })
         if vim.fn.executable("tmux") == 1 then
           vim.fn.system("tmux set status on")
         end
