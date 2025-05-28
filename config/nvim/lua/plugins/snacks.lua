@@ -1,3 +1,12 @@
+local picker_opts = {
+  sources = {
+    files = {
+      hidden = true,
+      exclude = { ".git" },
+    },
+  },
+}
+
 return {
   "folke/snacks.nvim",
   priority = 1000,
@@ -13,9 +22,9 @@ return {
   keys = {
     -- files
     { "<leader>fb", function() Snacks.picker.buffers() end,            desc = "Buffers" },
-    { "<leader>ff", function() Snacks.picker.files() end,              desc = "Find Files" },
-    { "<leader>fr", function() Snacks.picker.recent() end,             desc = "Recent" },
-    { "<leader>fg", function() Snacks.picker.grep() end,               desc = "Grep" },
+    { "<leader>ff", function() Snacks.picker.files(picker_opts) end,              desc = "Find Files" },
+    { "<leader>fr", function() Snacks.picker.recent(picker_opts) end,             desc = "Recent" },
+    { "<leader>fg", function() Snacks.picker.grep(picker_opts) end,               desc = "Grep" },
     { "<leader>fp", function() Snacks.picker.projects() end,           desc = "Projects" },
 
     -- git

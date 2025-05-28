@@ -27,6 +27,9 @@ return {
           end,
         },
       },
+      view_options = {
+        show_hidden = true,
+      },
     })
 
     local function change_command(cmd, callback, opts)
