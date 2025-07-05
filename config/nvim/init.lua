@@ -24,8 +24,8 @@ vim.opt.completeopt = { "menuone", "noselect", "noinsert", "preview" }
 vim.opt.shortmess:append("c")
 
 -- keymaps
-vim.keymap.set("n", ">", ">gv")
-vim.keymap.set("n", "<", "<gv")
+vim.keymap.set("v", ">", ">gv")
+vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("n", "<esc>", "<cmd>nohlsearch<cr><esc>")
 vim.keymap.set("n", "<c-u>", "<c-u>zz")
 vim.keymap.set("n", "<c-d>", "<c-d>zz")
@@ -44,7 +44,7 @@ vim.keymap.set("n", "<C-f>", vim.lsp.buf.format)
 
 -- auto commands
 local augroup = function(name)
-  return vim.api.nvim_create_augroup("custom_" .. name, { clear = true })
+  return vim.api.nvim_create_augroup("irohn.group" .. name, { clear = true })
 end
 
 vim.api.nvim_create_autocmd("TextYankPost", {
@@ -65,7 +65,7 @@ require("config.lazy")
 
 -- lsp
 vim.api.nvim_create_autocmd('LspAttach', {
-  group = vim.api.nvim_create_augroup('my.lsp', {}),
+  group = vim.api.nvim_create_augroup('irohn.lsp', {}),
   callback = function(args)
     local opts = { buffer = args.buf, silent = true }
     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition({}) end, opts)
