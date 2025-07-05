@@ -40,6 +40,13 @@ end
 
 -- Setup lazy.nvim
 require("lazy").setup({
+  dev = {
+    ---@type string | fun(plugin: LazyPlugin): string
+    path = "~/projects/personal",
+    ---@type string[]
+    pattern = { "*.nvim" },
+  },
+  ---@type LazySpec
   spec = {
     -- essentials
     "tpope/vim-sleuth",
