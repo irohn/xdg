@@ -1,35 +1,25 @@
 return {
   {
-    "saghen/blink.cmp",
+    'saghen/blink.cmp',
     dependencies = {
-      "rafamadriz/friendly-snippets",
-      "Kaiser-Yang/blink-cmp-avante",
+      'Kaiser-Yang/blink-cmp-avante',
     },
-    version = "*",
+    version = '1.*',
+    ---@module 'blink.cmp'
+    ---@type blink.cmp.Config
     opts = {
-      completion = { documentation = { auto_show = true } },
-      keymap = { preset = "default" },
-      appearance = {
-        use_nvim_cmp_as_default = true,
-        nerd_font_variant = "mono",
-      },
       sources = {
-        default = { "avante", "lazydev", "lsp", "path", "snippets", "buffer" },
+        -- Add 'avante' to the list
+        default = { 'avante', 'lsp', 'path', 'buffer' },
         providers = {
           avante = {
-            module = "blink-cmp-avante",
-            name = "Avante",
-          },
-          lazydev = {
-            name = "LazyDev",
-            module = "lazydev.integrations.blink",
-            score_offset = 100
-          },
+            module = 'blink-cmp-avante',
+            name = 'Avante',
+            opts = {},
+          }
         },
-      },
-      signature = { enabled = true },
-    },
-    opts_extend = { "sources.default" },
+      }
+    }
   },
 }
 

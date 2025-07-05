@@ -6,7 +6,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   if vim.v.shell_error ~= 0 then
     vim.api.nvim_echo({
       { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-      { out, "WarningMsg" },
+      { out,                            "WarningMsg" },
       { "\nPress any key to exit..." },
     }, true, {})
     vim.fn.getchar()
@@ -15,35 +15,47 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Make sure to setup `mapleader` and `maplocalleader` before
--- loading lazy.nvim so that mappings are correct.
--- This is also a good place to setup other settings (vim.opt)
-vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
+---@param fallback? string
+_G.get_colorscheme = function(fallback)
+  if not vim.g.COLORS_NAME then
+    vim.cmd.rshada()
+  end
+  if not vim.g.COLORS_NAME or vim.g.COLORS_NAME == '' then
+    return fallback or 'default'
+  end
+  return vim.g.COLORS_NAME
+end
+
+---@param colorscheme? string
+_G.save_colorscheme = function(colorscheme)
+  colorscheme = colorscheme or vim.g.colors_name
+  if get_colorscheme() == colorscheme then
+    return
+  end
+  vim.g.COLORS_NAME = colorscheme
+  vim.cmd.wshada()
+end
 
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
     -- import your plugins
     { import = "plugins" },
+    -- colorschemes
+    { "rebelot/kanagawa.nvim",   priority = 1000 },
+    { "webhooked/kanso.nvim",    priority = 1000 },
+    { "folke/tokyonight.nvim",   priority = 1000 },
+    { "neanias/everforest-nvim", priority = 1000 },
+    { "EdenEast/nightfox.nvim",  priority = 1000 },
+    { "navarasu/onedark.nvim",   priority = 1000 },
+    { "catppuccin/nvim",         name = "catppuccin", priority = 1000 },
+    { "rose-pine/neovim",        name = "rose-pine",  priority = 1000 },
   },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
-  install = { colorscheme = { "default" } },
+  install = { colorscheme = { get_colorscheme "default" } },
   -- automatically check for plugin updates
-  checker = { enabled = true, notify = false },
-  change_detection = { enabled = false, notify = false },
-  dev = {
-    -- directory where you store your local plugin projects
-    path = "~/projects/personal",
-    -- patterns used to detect plugins in that directory
-    patterns = {
-      "wormhole.nvim",
-      "opinionated.nvim",
-      "colorcache.nvim",
-      "focus.nvim",
-    },
-  },
+  checker = { enabled = true },
 })
 
 -- vim: ts=2 sts=2 sw=2 et
