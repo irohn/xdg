@@ -7,12 +7,7 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
-      {
-        "zbirenbaum/copilot.lua",
-        cmd = "Copilot",
-        event = "InsertEnter",
-        opts = {},
-      },
+      "zbirenbaum/copilot.lua",
       {
         "OXY2DEV/markview.nvim",
         lazy = false,
