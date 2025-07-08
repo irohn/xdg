@@ -12,14 +12,14 @@
 --- or [`jsconfig.json`](https://code.visualstudio.com/docs/languages/jsconfig) to
 --- the root of your project.
 return {
-  cmd = { 'vtsls', '--stdio' },
-  filetypes = {
-    'javascript',
-    'javascriptreact',
-    'javascript.jsx',
-    'typescript',
-    'typescriptreact',
-    'typescript.tsx',
-  },
-  root_markers = { 'tsconfig.json', 'package.json', 'jsconfig.json', '.git' },
+	cmd = { "vtsls", "--stdio" },
+	filetypes = {
+		"javascript",
+		"javascriptreact",
+		"javascript.jsx",
+		"typescript",
+		"typescriptreact",
+		"typescript.tsx",
+	},
+	root_markers = { "tsconfig.json", "package.json", "jsconfig.json", ".git" },
 }

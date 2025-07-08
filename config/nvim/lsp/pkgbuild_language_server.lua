@@ -4,7 +4,7 @@
 ---
 --- Language server for ArchLinux/Windows Msys2's PKGBUILD.
 return {
-  cmd = { 'pkgbuild-language-server' },
-  filetypes = { 'PKGBUILD' },
-  root_markers = { '.git' },
+	cmd = { "pkgbuild-language-server" },
+	filetypes = { "PKGBUILD" },
+	root_markers = { ".git" },
 }

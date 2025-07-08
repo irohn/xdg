@@ -23,42 +23,42 @@
 --- })
 
 function get_cmd()
-  local useGlobal = vim.lsp.config.glint.init_options.glint.useGlobal
-  if useGlobal then
-    return { 'glint-language-server' }
-  end
+	local useGlobal = vim.lsp.config.glint.init_options.glint.useGlobal
+	if useGlobal then
+		return { "glint-language-server" }
+	end
 
-  local root_markers = vim.lsp.config.glint.root_markers
-  local root_dir = vim.fs.root(0, root_markers)
+	local root_markers = vim.lsp.config.glint.root_markers
+	local root_dir = vim.fs.root(0, root_markers)
 
-  return { root_dir .. '/node_modules/.bin/glint-language-server' }
+	return { root_dir .. "/node_modules/.bin/glint-language-server" }
 end
 
 return {
-  cmd = function(dispatchers)
-    local cmd = get_cmd()
-    return vim.lsp.rpc.start(cmd, dispatchers)
-  end,
-  init_options = {
-    glint = {
-      useGlobal = false,
-    },
-  },
-  filetypes = {
-    'html.handlebars',
-    'handlebars',
-    'typescript',
-    'typescript.glimmer',
-    'javascript',
-    'javascript.glimmer',
-  },
-  root_markers = {
-    '.glintrc.yml',
-    '.glintrc',
-    '.glintrc.json',
-    '.glintrc.js',
-    'glint.config.js',
-    'package.json',
-  },
-  workspace_required = true,
+	cmd = function(dispatchers)
+		local cmd = get_cmd()
+		return vim.lsp.rpc.start(cmd, dispatchers)
+	end,
+	init_options = {
+		glint = {
+			useGlobal = false,
+		},
+	},
+	filetypes = {
+		"html.handlebars",
+		"handlebars",
+		"typescript",
+		"typescript.glimmer",
+		"javascript",
+		"javascript.glimmer",
+	},
+	root_markers = {
+		".glintrc.yml",
+		".glintrc",
+		".glintrc.json",
+		".glintrc.js",
+		"glint.config.js",
+		"package.json",
+	},
+	workspace_required = true,
 }

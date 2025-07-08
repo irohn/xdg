@@ -1,16 +1,18 @@
 return {
-  {
-    "zbirenbaum/copilot.lua",
-    cmd = "Copilot",
-    event = "InsertEnter",
-    opts = {
-      suggestion = {
-        auto_trigger = true,
-        keymap = {
-          accept = "<Tab>",
-          dismiss = "<C-c>",
-        },
-      }
-    },
-  },
+	{
+		"zbirenbaum/copilot.lua",
+		cmd = "Copilot",
+		event = "InsertEnter",
+		opts = {
+			suggestion = {
+				auto_trigger = true,
+				keymap = {
+					accept = "<Tab>",
+					dismiss = "<C-c>",
+				},
+			},
+		},
+	},
 }
+
+-- vim: ts=2 sts=2 sw=2 et

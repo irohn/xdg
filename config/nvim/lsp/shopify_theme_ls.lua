@@ -8,17 +8,17 @@
 ---
 --- Note: This LSP already includes Theme Check so you don't need to use the `theme_check` server configuration as well.
 return {
-  cmd = {
-    'shopify',
-    'theme',
-    'language-server',
-  },
-  filetypes = { 'liquid' },
-  root_markers = {
-    '.shopifyignore',
-    '.theme-check.yml',
-    '.theme-check.yaml',
-    'shopify.theme.toml',
-  },
-  settings = {},
+	cmd = {
+		"shopify",
+		"theme",
+		"language-server",
+	},
+	filetypes = { "liquid" },
+	root_markers = {
+		".shopifyignore",
+		".theme-check.yml",
+		".theme-check.yaml",
+		"shopify.theme.toml",
+	},
+	settings = {},
 }

@@ -5,8 +5,8 @@
 --- `djlsp`, a language server for Django templates.
 
 return {
-  cmd = { 'djlsp' },
-  filetypes = { 'html', 'htmldjango' },
-  root_markers = { '.git' },
-  settings = {},
+	cmd = { "djlsp" },
+	filetypes = { "html", "htmldjango" },
+	root_markers = { ".git" },
+	settings = {},
 }

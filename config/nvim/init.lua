@@ -33,63 +33,61 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("n", "<leader>m", "<cmd>messages<cr>")
 vim.keymap.set("n", "-", function()
-  local ok, oil = pcall(require, "oil")
-  if ok then
-    oil.open()
-  else
-    vim.cmd("Ex")
-  end
+	local ok, oil = pcall(require, "oil")
+	if ok then
+		oil.open()
+	else
+		vim.cmd("Ex")
+	end
 end, { desc = "File Explorer" })
-vim.keymap.set("n", "<C-f>", vim.lsp.buf.format)
+vim.keymap.set("n", "<C-f>", function()
+	local ok, conform = pcall(require, "conform")
+	if ok then
+		conform.format({ lsp_fallback = true })
+	else
+		vim.lsp.buf.format({ async = true })
+	end
+end, { desc = "Format" })
 
 -- auto commands
 local augroup = function(name)
-  return vim.api.nvim_create_augroup("irohn.group" .. name, { clear = true })
+	return vim.api.nvim_create_augroup("irohn.group" .. name, { clear = true })
 end
 
+vim.api.nvim_create_autocmd("LspAttach", {
+	group = augroup("lsp-attach"),
+	callback = function(event)
+		vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = event.buf, desc = "Go to definition" })
+		vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = event.buf, desc = "Go to references" })
+		vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = event.buf, desc = "Show hover" })
+		vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { buffer = event.buf, desc = "Rename symbol" })
+		vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = event.buf, desc = "Code action" })
+	end,
+})
+
 vim.api.nvim_create_autocmd("TextYankPost", {
-  group = augroup("highlight-on-yank"),
-  callback = function()
-    vim.highlight.on_yank()
-  end,
+	group = augroup("highlight-on-yank"),
+	callback = function()
+		vim.highlight.on_yank()
+	end,
 })
 
 vim.api.nvim_create_autocmd("VimResized", {
-  group = augroup("resize-splits"),
-  callback = function()
-    vim.highlight.on_yank()
-  end,
+	group = augroup("resize-splits"),
+	callback = function()
+		vim.highlight.on_yank()
+	end,
+})
+
+-- LSP servers
+vim.lsp.enable({
+	"lua_ls",
+	"pyright",
+	"gopls",
+	"nixd",
+	"clangd",
 })
 
 require("config.lazy")
-
--- lsp
-vim.api.nvim_create_autocmd('LspAttach', {
-  group = vim.api.nvim_create_augroup('irohn.lsp', {}),
-  callback = function(args)
-    local opts = { buffer = args.buf, silent = true }
-    vim.keymap.set("n", "gd", function() vim.lsp.buf.definition({}) end, opts)
-    vim.keymap.set("n", "gr", function() vim.lsp.buf.references() end, opts)
-    vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-    vim.keymap.set("n", "<Leader>rn", vim.lsp.buf.rename, opts)
-    vim.keymap.set("n", "<Leader>ca", vim.lsp.buf.code_action, opts)
-    vim.keymap.set("n", "<Leader>ih", function()
-      -- toggles inlay hints
-      vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-    end, opts)
-    vim.keymap.set("n", "<Leader>di", vim.diagnostic.open_float, opts)
-
-    local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
-    if client:supports_method('textDocument/implementation') then
-      vim.keymap.set("n", "gD", function() vim.lsp.buf.implementation({}) end, opts)
-    end
-
-    if client:supports_method('textDocument/completion') then
-      vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
-    end
-  end,
-})
-
-require("config.servers")
 
 -- vim: ts=2 sts=2 sw=2 et

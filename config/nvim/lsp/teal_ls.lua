@@ -12,11 +12,11 @@
 --- * "--log-mode=by_proj_path" - Enable logging in $HOME/.cache/teal-language-server. Log name will be project path + pid of process
 --- * "--verbose=true" - Increases log level.  Does nothing unless log-mode is set
 return {
-  cmd = {
-    'teal-language-server',
-  },
-  filetypes = {
-    'teal',
-  },
-  root_markers = { 'tlconfig.lua' },
+	cmd = {
+		"teal-language-server",
+	},
+	filetypes = {
+		"teal",
+	},
+	root_markers = { "tlconfig.lua" },
 }

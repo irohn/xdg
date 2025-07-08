@@ -21,8 +21,8 @@
 --- cargo install glasgow
 --- ```
 return {
-  cmd = { 'glasgow' },
-  filetypes = { 'wgsl' },
-  root_markers = { '.git' },
-  settings = {},
+	cmd = { "glasgow" },
+	filetypes = { "wgsl" },
+	root_markers = { ".git" },
+	settings = {},
 }
