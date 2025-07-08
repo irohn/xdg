@@ -99,3 +99,5 @@ return {
 		end, { desc = "Show symbol info" })
 	end,
 }
+
+-- vim: ts=2 sts=2 sw=2 et

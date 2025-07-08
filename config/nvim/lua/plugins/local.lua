@@ -12,14 +12,14 @@ return {
 				"nixd",
 				"nixfmt-rfc-style",
 
-        -- shell
-        "bash-language-server",
-        "shellcheck",
-        "shfmt",
+				-- shell
+				"bash-language-server",
+				"shellcheck",
+				"shfmt",
 
-        -- python
-        "basedpyright",
-        "ruff",
+				-- python
+				"basedpyright",
+				"ruff",
 			},
 		},
 	},
