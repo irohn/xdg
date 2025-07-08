@@ -2,7 +2,26 @@ return {
 	{
 		"irohn/nix.nvim",
 		dev = true,
-		opts = {},
+		opts = {
+			ensure_installed = {
+				-- lua
+				"lua-language-server",
+				"stylua",
+
+				-- nix
+				"nixd",
+				"nixfmt-rfc-style",
+
+        -- shell
+        "bash-language-server",
+        "shellcheck",
+        "shfmt",
+
+        -- python
+        "basedpyright",
+        "ruff",
+			},
+		},
 	},
 }
 
