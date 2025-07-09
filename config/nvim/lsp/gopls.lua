@@ -1,9 +1,3 @@
----@brief
----
---- https://github.com/golang/tools/tree/master/gopls
----
---- Google's lsp server for golang.
-
 local mod_cache = nil
 
 ---@param fname string

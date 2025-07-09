@@ -1,8 +1,3 @@
----@brief
----
---- https://github.com/regen100/cmake-language-server
----
---- CMake LSP Implementation
 return {
 	cmd = { "cmake-language-server" },
 	filetypes = { "cmake" },

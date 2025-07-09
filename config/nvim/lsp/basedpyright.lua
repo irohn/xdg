@@ -1,8 +1,15 @@
----@brief
----
---- https://detachhead.github.io/basedpyright
----
---- `basedpyright`, a static type checker and language server for python
+local cmd = "basedpyright-langserver"
+
+-- If the language server is not installed, use nix.nvim to install it.
+if vim.fn.executable(cmd) ~= 1 then
+	local ok, nix = pcall(require, "nix")
+	if ok then
+		local package = nix.package("basedpyright")
+		if package then
+			cmd = package.dir .. "/result/bin/basedpyright-langserver"
+		end
+	end
+end
 
 local function set_python_path(path)
 	local clients = vim.lsp.get_clients({
@@ -21,7 +28,7 @@ local function set_python_path(path)
 end
 
 return {
-	cmd = { "basedpyright-langserver", "--stdio" },
+	cmd = { cmd, "--stdio" },
 	filetypes = { "python" },
 	root_markers = {
 		"pyproject.toml",

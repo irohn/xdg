@@ -5,21 +5,22 @@ return {
 		opts = {
 			ensure_installed = {
 				-- lua
-				"lua-language-server",
-				"stylua",
+				"lua-language-server", -- lsp
+				"stylua", -- formatter
 
 				-- nix
-				"nixd",
-				"nixfmt-rfc-style",
+				"nixd", -- lsp
+				"nixfmt-rfc-style", -- formatter
 
 				-- shell
-				"bash-language-server",
-				"shellcheck",
-				"shfmt",
+				"bash-language-server", -- lsp
+				"shellcheck", -- linter
+				"shfmt", -- formatter
 
 				-- python
-				"basedpyright",
-				"ruff",
+				"basedpyright", -- lsp
+				"ruff", -- linter
+        "black", -- formatter
 			},
 		},
 	},

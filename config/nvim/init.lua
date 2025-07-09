@@ -82,7 +82,7 @@ vim.api.nvim_create_autocmd("VimResized", {
 -- LSP servers
 vim.lsp.enable({
 	"lua_ls",
-	"pyright",
+	"basedpyright",
 	"gopls",
 	"nixd",
 	"clangd",
