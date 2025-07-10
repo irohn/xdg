@@ -9,15 +9,11 @@ return {
 			"MunifTanjim/nui.nvim",
 			"zbirenbaum/copilot.lua",
 			{
-				"OXY2DEV/markview.nvim",
-				lazy = false,
+				"MeanderingProgrammer/render-markdown.nvim",
 				opts = {
-					experimental = { check_rtp_message = false },
-					preview = {
-						filetypes = { "markdown", "avante" },
-						ignore_buftypes = {},
-					},
+					file_types = { "Avante" },
 				},
+				ft = { "Avante" },
 			},
 		},
 		---@module "avante"

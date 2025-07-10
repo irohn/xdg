@@ -2,6 +2,7 @@ return {
 	{
 		"irohn/nix.nvim",
 		dev = true,
+    priority = 1000,
 		opts = {
 			ensure_installed = {
 				-- lua
@@ -20,7 +21,17 @@ return {
 				-- python
 				"basedpyright", -- lsp
 				"ruff", -- linter
-        "black", -- formatter
+				"black", -- formatter
+
+				-- json
+				"jq", -- formatter
+
+				-- yaml
+				"yamlfmt", -- formatter
+				"yaml-language-server", -- lsp
+
+        -- markdown, html, css, js, ts
+        "prettier", -- formatter
 			},
 		},
 	},

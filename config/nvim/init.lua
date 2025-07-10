@@ -23,6 +23,8 @@ vim.opt.expandtab = true
 vim.opt.completeopt = { "menuone", "noselect", "noinsert", "preview" }
 vim.opt.shortmess:append("c")
 
+require("config.lazy")
+
 -- keymaps
 vim.keymap.set("v", ">", ">gv")
 vim.keymap.set("v", "<", "<gv")
@@ -54,17 +56,6 @@ local augroup = function(name)
 	return vim.api.nvim_create_augroup("irohn.group" .. name, { clear = true })
 end
 
-vim.api.nvim_create_autocmd("LspAttach", {
-	group = augroup("lsp-attach"),
-	callback = function(event)
-		vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = event.buf, desc = "Go to definition" })
-		vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = event.buf, desc = "Go to references" })
-		vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = event.buf, desc = "Show hover" })
-		vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { buffer = event.buf, desc = "Rename symbol" })
-		vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = event.buf, desc = "Code action" })
-	end,
-})
-
 vim.api.nvim_create_autocmd("TextYankPost", {
 	group = augroup("highlight-on-yank"),
 	callback = function()
@@ -79,15 +70,17 @@ vim.api.nvim_create_autocmd("VimResized", {
 	end,
 })
 
--- LSP servers
-vim.lsp.enable({
-	"lua_ls",
-	"basedpyright",
-	"gopls",
-	"nixd",
-	"clangd",
+vim.api.nvim_create_autocmd("LspAttach", {
+	group = augroup("lsp-attach"),
+	callback = function(event)
+		vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = event.buf, desc = "Go to definition" })
+		vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = event.buf, desc = "Go to references" })
+		vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = event.buf, desc = "Show hover" })
+		vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { buffer = event.buf, desc = "Rename symbol" })
+		vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { buffer = event.buf, desc = "Code action" })
+	end,
 })
 
-require("config.lazy")
+require("config.tools")
 
 -- vim: ts=2 sts=2 sw=2 et
