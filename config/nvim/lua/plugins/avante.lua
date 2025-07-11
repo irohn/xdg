@@ -28,7 +28,7 @@ return {
 					timeout = 10 * 60 * 1000,
 					max_completion_tokens = 1000000,
 					reasoning_effort = "high",
-					model = "claude-sonnet-4",
+					model = "o4-mini",
 					extra_request_body = {
 						temperature = 0.75,
 						max_tokens = 20480,
