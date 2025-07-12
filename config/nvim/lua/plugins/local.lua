@@ -2,7 +2,7 @@ return {
 	{
 		"irohn/nix.nvim",
 		dev = true,
-    priority = 1000,
+		priority = 1000,
 		opts = {
 			ensure_installed = {
 				-- lua
@@ -29,9 +29,6 @@ return {
 				-- yaml
 				"yamlfmt", -- formatter
 				"yaml-language-server", -- lsp
-
-        -- markdown, html, css, js, ts
-        "prettier", -- formatter
 			},
 		},
 	},
