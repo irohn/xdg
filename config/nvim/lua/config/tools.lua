@@ -96,6 +96,18 @@ local filetypes = {
 			},
 		},
 	},
+	nix = {
+		language_server = {
+			nixd = {
+				bin = "nixd",
+			},
+		},
+		formatters = {
+			nixfmt_rfc_style = {
+				command = "nixfmt",
+			},
+		},
+	},
 	sh = {
 		language_server = {
 			bashls = {
